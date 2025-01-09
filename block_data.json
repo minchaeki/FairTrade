@@ -1,0 +1,10 @@
+{
+    "productName": "Coffee",
+    "productionDate": "2025-01-01",
+    "processingDetails": "Roasted and Packaged",
+    "farmName": "John's Fair Trade Farm",
+    "farmLocation": "Ethiopia",
+    "workerAverageAge": 30,
+    "workerWage": 20,
+    "environmentCertification": "Fair Trade Certified"
+}
