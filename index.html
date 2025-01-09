@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fair Trade Product Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #333;
+        }
+        .product-info, .farm-info, .worker-info, .environment-info {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .info-title {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 10px;
+        }
+        p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fair Trade Product Information</h1>
+
+    <div class="product-info">
+        <div class="info-title">Product Information</div>
+        <p><strong>Product Name:</strong> <span id="product-name"></span></p>
+        <p><strong>Production Date:</strong> <span id="production-date"></span></p>
+        <p><strong>Processing Details:</strong> <span id="processing-details"></span></p>
+    </div>
+
+    <div class="farm-info">
+        <div class="info-title">Farm Information</div>
+        <p><strong>Farm Name:</strong> <span id="farm-name"></span></p>
+        <p><strong>Farm Location:</strong> <span id="farm-location"></span></p>
+    </div>
+
+    <div class="worker-info">
+        <div class="info-title">Worker Information</div>
+        <p><strong>Average Age:</strong> <span id="worker-average-age"></span> years</p>
+        <p><strong>Average Wage:</strong> $<span id="worker-wage"></span>/hour</p>
+    </div>
+
+    <div class="environment-info">
+        <div class="info-title">Environmental Certification</div>
+        <p><strong>Certification:</strong> <span id="environment-certification"></span></p>
+    </div>
+
+    <script>
+        // JSON 파일을 읽어와 데이터 삽입
+        fetch("block_data.json")
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("product-name").textContent = data.productName;
+                document.getElementById("production-date").textContent = data.productionDate;
+                document.getElementById("processing-details").textContent = data.processingDetails;
+                document.getElementById("farm-name").textContent = data.farmName;
+                document.getElementById("farm-location").textContent = data.farmLocation;
+                document.getElementById("worker-average-age").textContent = data.workerAverageAge;
+                document.getElementById("worker-wage").textContent = data.workerWage;
+                document.getElementById("environment-certification").textContent = data.environmentCertification;
+            })
+            .catch(error => console.error("Error fetching JSON data:", error));
+    </script>
+</body>
+</html>
